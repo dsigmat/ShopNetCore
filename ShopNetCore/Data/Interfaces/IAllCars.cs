@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ShopNetCore.Data.Interfaces
 {
-    interface IAllCars
+    public interface IAllCars
     {
-        IEnumerable<Car> Cars { get; set; }
+        IEnumerable<Car> Cars { get; }
         IEnumerable<Car> GetFavCars { get; set; }
         Car GetObjectCar(int carId);
     }

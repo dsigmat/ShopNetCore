@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopNetCore.Data.Interfaces
 {
-    interface ICarsCategory
+    public interface ICarsCategory
     {
         //Возвращает список
         IEnumerable<Category> AllCategories { get; }

@@ -9,7 +9,7 @@ namespace ShopNetCore.Data.Models
     {
         public int Id { get; set; }
         public string CategoryName { get; set; }
-        public int Desc { get; set; }
+        public string Desc { get; set; }
         public List<Car> Cars { get; set; }
     }
 }

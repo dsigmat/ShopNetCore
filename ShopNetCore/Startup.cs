@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using ShopNetCore.Data.Interfaces;
+using ShopNetCore.Data.Mocks;
 
 namespace ShopNetCore
 {
@@ -17,6 +19,8 @@ namespace ShopNetCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<IAllCars, MockCars>();
+            services.AddTransient<ICarsCategory, MockCategory>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
