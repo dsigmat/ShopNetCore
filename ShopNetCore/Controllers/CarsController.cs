@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ShopNetCore.Data.Interfaces;
+using ShopNetCore.ViewModels;
 
 namespace ShopNetCore.Controllers
 {
@@ -20,8 +21,14 @@ namespace ShopNetCore.Controllers
 
         public IActionResult List()
         {
-            var cars = _allCars.Cars;
-            return View(cars);
+            //ViewBag.Category = "Some New";
+            //var cars = _allCars.Cars;
+
+            ViewBag.Title = "Страница с автомобилями";
+            CarsListViewModel obj = new CarsListViewModel();
+            obj.AllCars = _allCars.Cars;
+            obj.currCategory = "Автомобили";
+            return View(obj);
         }
     }
 }
