@@ -1,23 +1,8 @@
-﻿
-
-
-<h1>Все автомобили</h1>
+﻿<h1>Все автомобили</h1>
 <h3>@Model.currCategory</h3>
 @{
-    foreach (var car in Model.AllCars)
+    foreach (Car car in Model.AllCars)
     {
-    <div class="row featurette">
-        <div class="col-md-7">
-            <h2 class="featurette-heading">@car.Price.ToString("c") <span class="text-muted">@car.Name</span></h2>
-            <p class="lead">
-                @car.ShortDesc
-            </p>
-        </div>
-        <div class="col-md-5">
-            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
-                 width="500" height="500" src="@car.Img" alt="@car.Name" />
-        </div>
-    </div>
-    <hr class="featurette-divider">
+        @Html.Partial("AllCars", car)
     }
 }
