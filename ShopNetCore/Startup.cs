@@ -71,7 +71,12 @@ namespace ShopNetCore
             app.UseStaticFiles();
             app.UseSession();
             //сможем отслеживать URL адрес
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}");
+                //routes.MapRoute(name: "categoryFilter", template: "{controller=Cars}/{action}/{category?}", defaults: new { controller = "Cars", action = "List"});
+            });
 
             using (var scope = app.ApplicationServices.CreateScope())
             {
