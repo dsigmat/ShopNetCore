@@ -47,7 +47,7 @@ namespace ShopNetCore.Controllers
                     currCategory = "Классические автомобили";
                 }                               
             }
-
+            Console.WriteLine();
             var carObj = new CarsListViewModel
             {
                 AllCars = cars,

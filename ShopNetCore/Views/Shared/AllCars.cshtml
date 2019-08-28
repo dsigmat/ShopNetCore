@@ -4,7 +4,7 @@
     <div class="col-md-7">
         <h2 class="featurette-heading">
             @Model.Price.ToString("c") <span class="text-muted">@Model.Name</span>
-            <a class="btn btn-outline-warning" href="#">Подробнее</a>
+            <a class="btn btn-outline-warning" asp-controller="ShopCart" asp-action="addToCart" asp-route-id="@Model.Id">Добавить в корзину</a>
         </h2>
         <p class="lead">
             @Model.ShortDesc

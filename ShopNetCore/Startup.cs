@@ -34,6 +34,7 @@ namespace ShopNetCore
             services.AddMvc();
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarsCategory, MockCategory>();
+            services.AddTransient<IAllOrders, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShopCart.GetCart(sp));
