@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ShopNetCore.Data;
 using ShopNetCore.Data.Interfaces;
 using ShopNetCore.Data.Mocks;
+using ShopNetCore.Data.Models;
 using ShopNetCore.Data.Repository;
 
 namespace ShopNetCore
@@ -33,6 +34,12 @@ namespace ShopNetCore
             services.AddMvc();
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<ICarsCategory, MockCategory>();
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShopCart.GetCart(sp));
+
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +69,7 @@ namespace ShopNetCore
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+            app.UseSession();
             //сможем отслеживать URL адрес
             app.UseMvcWithDefaultRoute();
 
